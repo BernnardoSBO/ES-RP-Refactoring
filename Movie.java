@@ -27,7 +27,7 @@ public class Movie {
     public double getCharge(int daysRented) {
 
         double thisAmount = 0;
-        
+
         switch (getPriceCode()) {
             case Movie.REGULAR:
                 thisAmount += 2;
@@ -45,4 +45,11 @@ public class Movie {
             }
         return thisAmount;
     }
+
+    public int getFrequentRenterPoints(int daysRented) {
+        if ((getPriceCode() == NEW_RELEASE) && daysRented > 1)
+            return 2;
+        else 
+            return 1;
+  }
     }
